@@ -83,11 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsEl = document.querySelector('.hero-stats');
     if (statsEl) statsObs.observe(statsEl);
 
-    // ── Scroll reveal ──
+    // ── Scroll reveal (below-fold elements only — never hero) ──
     const revealEls = document.querySelectorAll(
         '.tl-item, .proj-card, .edu-card, .tile, ' +
         '.about-left, .about-right, ' +
-        '.section-label, .section-heading, .hero-eyebrow, .hero-heading, .hero-bio, .hero-actions, .hero-stats, .photo-wrap, .ticker-wrap'
+        '.section-label, .section-heading'
     );
 
     revealEls.forEach(el => el.classList.add('sr'));

@@ -309,6 +309,18 @@ body.light .moon-icon { display: block; }
     flex-shrink: 0;
 }
 
+/* Hero entrance — always runs on load, no JS dependency */
+@keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-heading  { animation: hero-fade-up .7s var(--spring) .05s both; }
+.hero-bio      { animation: hero-fade-up .7s var(--spring) .15s both; }
+.hero-actions  { animation: hero-fade-up .7s var(--spring) .25s both; }
+.photo-wrap    { animation: hero-fade-up .8s var(--spring) .1s  both; }
+.ticker-wrap   { animation: hero-fade-up .7s var(--spring) .3s  both; }
+
 /* Hero right */
 .hero-right {
     display: flex;
