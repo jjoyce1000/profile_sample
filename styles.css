@@ -157,16 +157,17 @@ body.light .moon-icon { display: block; }
 
 /* ── Hero ── */
 .hero {
+    min-height: 100vh;
     min-height: 100svh;
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden;
 }
 
 .hero-bg-grid {
     position: absolute;
     inset: 0;
+    overflow: hidden;
     background-image:
         linear-gradient(var(--border) 1px, transparent 1px),
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
@@ -321,6 +322,14 @@ body.light .moon-icon { display: block; }
 .photo-wrap    { animation: hero-fade-up .8s var(--spring) .1s  both; }
 .ticker-wrap   { animation: hero-fade-up .7s var(--spring) .3s  both; }
 
+@media (prefers-reduced-motion: reduce) {
+    .hero-heading, .hero-bio, .hero-actions, .photo-wrap, .ticker-wrap {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 /* Hero right */
 .hero-right {
     display: flex;
@@ -331,13 +340,16 @@ body.light .moon-icon { display: block; }
 
 .photo-wrap {
     position: relative;
-    width: clamp(200px, 55vw, 300px);
-    height: clamp(245px, 68vw, 370px);
+    width: min(300px, 72vw);
+    aspect-ratio: 300 / 370;
     flex-shrink: 0;
+    display: block;
 }
 
 .hero-photo {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
     object-fit: cover;
     object-position: center top;
     border-radius: 53% 53% 8% 8% / 42% 42% 6% 6%;
@@ -918,8 +930,8 @@ body.light .hero-bg-grid { opacity: .5; }
 
     body.light .nav-links { background: rgba(244,242,236,.97); }
 
-    .photo-wrap { width: clamp(160px, 52vw, 240px); height: clamp(195px, 63vw, 295px); }
-    .ticker-wrap { max-width: min(320px, 90vw); }
+    .photo-wrap { width: min(240px, 68vw); }
+    .ticker-wrap { max-width: min(300px, 88vw); }
 
     .section-inner { padding: 5rem 1.25rem; }
     .hero-heading { font-size: clamp(2.8rem, 12vw, 4rem); }
